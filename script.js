@@ -39,17 +39,17 @@ buyTicketBtns.forEach(button => {
         modal.style.display = 'block';
     };
 });
-window.watsonAssistantChatOptions = {
-    integrationID: "fdfa95c2-ef36-4d60-84d5-1fad8dd46403",
-    region: "au-syd",
-    serviceInstanceID: "28e5e3d0-9536-499f-ac19-43b4a2cb44f6",
-    onLoad: async (instance) => { await instance.render(); }
-  };
-  setTimeout(function(){
-    const t=document.createElement('script');
-    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-    document.head.appendChild(t);
-  });
+// window.watsonAssistantChatOptions = {
+//     integrationID: "fdfa95c2-ef36-4d60-84d5-1fad8dd46403",
+//     region: "au-syd",
+//     serviceInstanceID: "28e5e3d0-9536-499f-ac19-43b4a2cb44f6",
+//     onLoad: async (instance) => { await instance.render(); }
+//   };
+//   setTimeout(function(){
+//     const t=document.createElement('script');
+//     t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+//     document.head.appendChild(t);
+//   });
 closeModalBtn.onclick = () => {
     modal.style.display = 'none';
     ticketQuantityInput.value = 1;
