@@ -1,6 +1,6 @@
 
 function countdownTimer() {
-    const eventDate = new Date('September 29, 2024 00:00:00').getTime();
+    const eventDate = new Date('September 30, 2024 00:00:00').getTime();
 
     const updateTimer = setInterval(() => {
         const now = new Date().getTime();
