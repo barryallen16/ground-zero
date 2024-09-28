@@ -1,31 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-    countdownTimer();
-});
-function countdownTimer() {
-    const eventDate = new Date('September 30, 2024 00:00:00').getTime();
 
-    const updateTimer = setInterval(() => {
-        const now = new Date().getTime();
-        const timeLeft = eventDate - now;
+const eventDate = new Date("October 16, 2024 10:00:00").getTime();
 
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+const updateCountdown = () => {
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
 
-        document.getElementById('days').innerHTML = days < 10 ? '0' + days : days;
-        document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
-        document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        if (timeLeft < 0) {
-            clearInterval(updateTimer);
-            document.getElementById('countdown-timer').innerHTML = "<h3>Event has started!</h3>";
-        }
-    }, 1000);
-}
+    // Display the countdown
+    document.getElementById("days").innerHTML = days < 10 ? `0${days}` : days;
+    document.getElementById("hours").innerHTML = hours < 10 ? `0${hours}` : hours;
+    document.getElementById("minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
+    document.getElementById("seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
 
-countdownTimer();
+    // If the countdown is over
+    if (timeLeft < 0) {
+        clearInterval(interval);
+        document.getElementById("countdown-timer").innerHTML = "Event Started";
+    }
+};
+
+// Update countdown every second
+const interval = setInterval(updateCountdown, 1000);
+
 
 const modal = document.getElementById('ticket-modal');
 const buyTicketBtns = document.querySelectorAll('.buy-ticket-btn');
